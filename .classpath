@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Workspaces/src"/>
+	<classpathentry kind="lib" path="Software/junit-4.13.jar"/>
+	<classpathentry kind="lib" path="Software/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="output" path="Workspaces/bin"/>
+</classpath>
