@@ -1,31 +1,36 @@
 package SeleniumTrainingCarlos;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class formsMethods {
-	static WebDriver driver = new ChromeDriver();
 	
-	static formsKeys fk = new formsKeys();
+	WebDriver _driver;
 	
-	public static void clickSubmitButton() {
-		driver.findElement(By.xpath(fk.getSubmitButton())).click();
+	public formsMethods(WebDriver driver) {
+		this._driver = driver;
 	}
 	
-	public static void succesfulMessage(String name, String date, String comment) {
-		driver.findElement(By.xpath(fk.getNameField())).click();
+	public void clickSubmitButton() {
+		_driver.findElement(By.xpath(formsKeys.getSubmitButton())).click();
+	}
+	
+	public void succesfulMessage(String name, String date, String comment) {
+		_driver.findElement(By.xpath(formsKeys.getNameField())).sendKeys(name);
 		
-		driver.findElement(By.xpath(fk.getNameField())).sendKeys(name);
+		_driver.findElement(By.xpath(formsKeys.getDateField())).sendKeys(date);
 			
-		driver.findElement(By.xpath(fk.getDateField())).click();
+		_driver.findElement(By.xpath(formsKeys.getCommentField())).sendKeys(comment);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 			
-		driver.findElement(By.xpath(fk.getDateField())).sendKeys(date);
-			
-		driver.findElement(By.xpath(fk.getCommentField())).click();
-			
-		driver.findElement(By.xpath(fk.getCommentField())).sendKeys(comment);
-			
-		driver.findElement(By.xpath(fk.getSubmitButton())).click();
+		_driver.findElement(By.xpath(formsKeys.getSubmitButton())).click();
 	}
 }

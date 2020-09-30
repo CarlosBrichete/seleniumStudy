@@ -1,7 +1,5 @@
 package SeleniumTrainingCarlos;
 
-import org.openqa.selenium.By;
-
 public class formsKeys {
 	public static String getNameFieldRequiredText() {
 		return nameFieldRequiredText;
@@ -38,13 +36,18 @@ public class formsKeys {
 		return commentField;
 	}
 	
-	private static String nameFieldRequiredText = "//*[contains(@class, 'form-feedback-item help-block')]";
-	private static String dateFieldRequiredText = "//*[contains(@class, 'form-feedback-item help-block')]";
-	private static String commentFieldRequiredText = "//*[contains(@class, 'form-feedback-item help-block')]";
+	public static String getRandomDate() {
+		return randomDate;
+	}
+	
+	private static String nameFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[1]/div[2]/div/div[2]/div";
+	private static String dateFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[1]/div[2]/div/div[2]/div";
+	private static String commentFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[2]/div/div/div/div";
 	private static String partyRockText = "//*[contains(@class, 'lfr-ddm-form-page-description')]";
 	private static String succesfulMessage = "//*[contains(@class, 'ddm-form-description')]";
-	private static String submitButton = "//*[contains(@class, 'btn btn-primary lfr-ddm-form-submit pull-right')]";
+	private static String submitButton = "//*[contains(@class, 'btn-primary lfr-ddm-form-submit')]";
 	private static String nameField = "//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhatIsYourName')]";
 	private static String dateField = "//*[contains(@class, 'form-control input-group-inset input-group-inset-after')]";
 	private static String commentField = "//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhyDidYouJoin')]";
+	private static String randomDate = "//*[contains(@arialabel, '2020 8 9')]";
 }

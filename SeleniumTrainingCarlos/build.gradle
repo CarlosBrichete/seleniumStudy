@@ -20,8 +20,8 @@ sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
 ext {
-	junitVersion = '5.6.2'
-	seleniumVersion = '3.3.1'
+	junitVersion = '4.1.2'
+	seleniumVersion = '3.4+'
 }
 
 repositories {
