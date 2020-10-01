@@ -3,15 +3,10 @@
  */
 package SeleniumTrainingCarlos;
 
-
-
-import java.util.concurrent.TimeUnit;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -30,8 +25,6 @@ public class formsTests {
 	@Before
 	public void setUpTest() {
 		driver.get("https://forms.liferay.com/web/forms/shared/-/form/122548");
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	@AfterClass
@@ -40,44 +33,56 @@ public class formsTests {
 	}
 	
 	@Test
-	public void mandatoryNameField() {			
-		fm.clickSubmitButton();
+	public void mandatoryNameField() {	
+		fm.fillDate(formsKeys.getDateField());
 		
-		String currentValue = driver.findElement(By.xpath(formsKeys.getNameFieldRequiredText())).getText();
+		fm.fillComment(comment, formsKeys.getCommentField());
+		
+		fm.clickSubmitButton(formsKeys.getSubmitButton());
+		
+		String currentValue = driver.findElement(formsKeys.getNameFieldRequiredText()).getText();
 
 		Assert.assertTrue(currentValue.contains(expectedMandatoryMessage));
 	}
 	
 	@Test
-	public void mandatoryDateField() {			
-		fm.clickSubmitButton();
+	public void mandatoryDateField() {		
+		fm.fillName(name, formsKeys.getNameField());
 		
-		String currentValue = driver.findElement(By.xpath(formsKeys.getDateFieldRequiredText())).getText();
+		fm.fillComment(comment, formsKeys.getCommentField());
+		
+		fm.clickSubmitButton(formsKeys.getSubmitButton());
+		
+		String currentValue = driver.findElement(formsKeys.getDateFieldRequiredText()).getText();
 		
 		Assert.assertTrue(currentValue.contains(expectedMandatoryMessage));
 	}
 	
 	@Test
 	public void mandatoryCommentField() {			
-		fm.clickSubmitButton();
+		fm.fillName(name, formsKeys.getNameField());
 		
-		String currentValue = driver.findElement(By.xpath(formsKeys.getCommentFieldRequiredText())).getText();
+		fm.fillDate(formsKeys.getDateField());
+		
+		fm.clickSubmitButton(formsKeys.getSubmitButton());
+		
+		String currentValue = driver.findElement(formsKeys.getCommentFieldRequiredText()).getText();
 		
 		Assert.assertTrue(currentValue.contains(expectedMandatoryMessage));
 	}
 		
 	@Test
 	public void textPresent() {	
-		String currentValue = driver.findElement(By.xpath(formsKeys.getPartyRockText())).getText();
+		String currentValue = driver.findElement(formsKeys.getPartyRockText()).getText();
 		
 		Assert.assertTrue(currentValue.contains(expectedPartyRockMessage));
 	}
 
 	@Test
 	public void successfulSubmit() {
-		fm.succesfulMessage(name, date, comment);
+		fm.succesfulMessage(name, date, comment, formsKeys.getSubmitButton());
 			
-		String currentValue = driver.findElement(By.xpath(formsKeys.getSuccesfulMessage())).getText();
+		String currentValue = driver.findElement(formsKeys.getSuccesfulMessage()).getText();
 		
 		Assert.assertTrue(currentValue.contains(expectedSuccesfulMessage));
 	}

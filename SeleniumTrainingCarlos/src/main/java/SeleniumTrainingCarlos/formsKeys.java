@@ -1,53 +1,55 @@
 package SeleniumTrainingCarlos;
 
+import org.openqa.selenium.By;
+
 public class formsKeys {
-	public static String getNameFieldRequiredText() {
+	public static By getNameFieldRequiredText() {
 		return nameFieldRequiredText;
 	}
 	
-	public static String getDateFieldRequiredText() {
+	public static By getDateFieldRequiredText() {
 		return dateFieldRequiredText;
 	}
 	
-	public static String getCommentFieldRequiredText() {
+	public static By getCommentFieldRequiredText() {
 		return commentFieldRequiredText;
 	}
 	
-	public static String getPartyRockText() {
+	public static By getPartyRockText() {
 		return partyRockText;
 	}
 	
-	public static String getSuccesfulMessage() {
+	public static By getSuccesfulMessage() {
 		return succesfulMessage;
 	}
 	
-	public static String getSubmitButton() {
+	public static By getSubmitButton() {
 		return submitButton;
 	}
 
-	public static String getNameField() {
+	public static By getNameField() {
 		return nameField;
 	}
-	public static String getDateField() {
+	public static By getDateField() {
 		return dateField;
 	}
 	
-	public static String getCommentField() {
+	public static By getCommentField() {
 		return commentField;
 	}
 	
-	public static String getRandomDate() {
+	public static By getRandomDate() {
 		return randomDate;
 	}
 	
-	private static String nameFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[1]/div[2]/div/div[2]/div";
-	private static String dateFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[1]/div[2]/div/div[2]/div";
-	private static String commentFieldRequiredText = "//*[starts-with(@id, 'ddmForm')]/div/div/div[1]/div/div/div[2]/div/div/div/div";
-	private static String partyRockText = "//*[contains(@class, 'lfr-ddm-form-page-description')]";
-	private static String succesfulMessage = "//*[contains(@class, 'ddm-form-description')]";
-	private static String submitButton = "//*[contains(@class, 'btn-primary lfr-ddm-form-submit')]";
-	private static String nameField = "//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhatIsYourName')]";
-	private static String dateField = "//*[contains(@class, 'form-control input-group-inset input-group-inset-after')]";
-	private static String commentField = "//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhyDidYouJoin')]";
-	private static String randomDate = "//*[contains(@arialabel, '2020 8 9')]";
+	private static By nameFieldRequiredText = By.xpath("//*[contains(@data-field-name, 'Name')]//*[contains(@class, 'help-block')]");
+	private static By dateFieldRequiredText = By.xpath("//*[contains(@data-field-name, 'Date')]//*[contains(@class, 'help-block')]");
+	private static By commentFieldRequiredText = By.xpath("//*[contains(@data-field-name, 'Join')]//*[contains(@class, 'help-block')]");
+	private static By partyRockText = By.xpath("//*[contains(@class, 'lfr-ddm-form-page-description')]");
+	private static By succesfulMessage = By.xpath("//*[contains(@class, 'ddm-form-description')]");
+	private static By submitButton = By.xpath("//*[contains(@class, 'btn-primary lfr-ddm-form-submit')]");
+	private static By nameField = By.xpath("//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhatIsYourName')]");
+	private static By dateField = By.xpath("//*[contains(@class, 'form-control input-group-inset input-group-inset-after')]");
+	private static By commentField = By.xpath("//*[contains(@class, 'ddm-field-text form-control') and contains(@name, 'WhyDidYouJoin')]");
+	private static By randomDate = By.xpath("//*[contains(@arialabel, '2020 9 14')]");
 }
